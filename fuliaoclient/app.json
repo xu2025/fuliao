@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/overview/overview",
+    "pages/login/login",
+    "pages/ruku/ruku",
+    "pages/chuku/chuku",
+    "pages/chuku2/chuku2",
+    "pages/feiqi/feiqi",
+    "pages/feiqi2/feiqi2",
+    "pages/register/register"
+  ],
+  "sitemapLocation": "sitemap34.json"
+}

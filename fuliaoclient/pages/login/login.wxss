@@ -1,0 +1,42 @@
+/* pages/login/login.wxss */
+.denglu{
+  height: 250rpx;
+  width: 250rpx;
+  background-color: white;
+  margin: 100rpx 0 150rpx 275rpx;
+}
+
+.loginPanel{
+  width: 500rpx;
+  height: 500rpx;
+  margin: 0rpx auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPanel .formItems{
+  flex: 1;
+  display: flex;
+  margin: 30rpx 0;
+}
+
+.checkboxItems{
+  justify-content: space-between
+}
+
+.passwordInput,
+.accountInput{
+  border-bottom: 1px solid #1296db;
+  color: black;
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+/* line-height是为了让登录的文字居中*/
+.loginBtn{
+  width: 100%;
+  height: 80rpx;
+  line-height:80rpx;
+  border-radius: 40rpx;
+  margin: 20rpx
+}

@@ -1,0 +1,58 @@
+/* pages/chuku2/chuku2.wxss */
+.list-msg {
+    padding: 0 20rpx;
+    position: relative;
+    display: flex;
+    margin: 60rpx 0;
+}
+ 
+.list-msg1 {
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 40rpx;
+}
+ 
+.list-msg2 {
+  height: 60rpx;
+  margin-left: 20rpx;
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+}
+ 
+.select_box {
+  padding: 0 10rpx;
+  background-color: grey;
+  width: 100%;
+  position: absolute;
+  top: 60rpx;
+  z-index: 1;
+  overflow: hidden;
+  animation: myfirst 0.5s;
+}
+ 
+/* @keyframes myfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+        height: 210rpx;
+    }
+} */
+ 
+.select_one {
+  height: 50rpx;
+  line-height: 50rpx;
+  border-bottom: 1px dashed tomato;
+}
+
+.list-msg-text{
+  color: grey;
+}/* pages/chuku2/chuku2.wxss */

@@ -1,0 +1,16 @@
+<!--pages/feiqi/feiqi.wxml-->
+<view class="table_name">
+  <view>辅料名</view>
+  <view>辅料号</view>
+  <view>有效期</view>
+  <view>入库日期</view>
+</view>
+
+<block wx:for="{{materailItems}}" wx:for-item="materailItem" wx:key="id">
+  <view class="table">
+    <text class="text1">{{materailItem.fuliaoming}}</text>
+    <text class="text1">{{materailItem.fuliaohao}}</text>
+    <text class="text1">{{materailItem.youxiaoqi}}</text>
+    <text class="text1">{{materailItem.rukuriqi}}</text>
+  </view>
+</block>

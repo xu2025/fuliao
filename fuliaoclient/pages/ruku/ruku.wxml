@@ -1,0 +1,62 @@
+<!--pages/ruku/ruku.wxml-->
+<view class='list-msg'>
+    <text class='list-msg1'>辅料名</text>
+<!--下拉框 -->
+    <view class='list-msg2' bindtap='bindShowMsg'>
+        <text>{{fuliaoming}}</text>
+    </view>
+<!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+        <view class="select_one" bindtap="mySelect" data-name="车型铭牌薄膜">车型铭牌薄膜</view>
+        <view class="select_one" bindtap="mySelect" data-name="硅胶">硅胶</view>
+        <view class="select_one" bindtap="mySelect" data-name="厌氧胶">厌氧胶</view>
+    </view> 
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>辅料号</text>
+    <view class='list-msg2'>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>电子标签</text>
+    <view class='list-msg2'>（请扫码）</view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>有效期</text>
+    <view class='list-msg2'>
+    <text class="list-msg-text">2020.03.19</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>标定重量</text>
+    <view class='list-msg2'>
+    <text>28.6kg</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>实际称重</text>
+    <view class='list-msg2'>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>入库人</text>
+    <view class='list-msg2'>
+    <text>郭老师</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>入库日期</text>
+    <view class='list-msg2'>
+    <text class="list-msg-text">2020.03.05</text>
+    </view>
+</view>
+
+
+<button type="primary" form-type="submit" size="normal">提交</button>

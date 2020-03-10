@@ -1,0 +1,20 @@
+/* pages/chuku/chuku.wxss */
+.table_name{
+  display:flex;
+  flex:1;
+  justify-content: space-evenly;
+  margin: 60rpx 0 30rpx 0;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+
+.table{
+  justify-content: space-evenly;
+  margin: 60rpx 0;
+}
+
+.text{
+  display: flex;
+  flex:1;
+  justify-content: space-evenly;
+}

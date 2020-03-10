@@ -1,0 +1,41 @@
+<!--pages/overview/overview.wxml-->
+<!--上面的导航栏-->
+<view class="bar">
+  <view class="inner">
+    <image src="/assets/photos/ruku1.png" class="image"/>
+    <text>入库</text>
+  </view>
+
+  <view class="inner">
+    <image src="/assets/photos/chuku1.png" class="image"/>
+    <text>出库</text>
+  </view>
+
+  <view class="inner">
+    <image src="/assets/photos/feiqi1.png" class="image"/>
+    <text>废弃</text>
+  </view>
+
+  <view class="inner">
+    <image src="/assets/photos/quanxian1.png" class="image"/>
+    <text>权限管理</text>
+  </view>
+</view>
+
+<!--如果通过wx:for遍历一个数组，届时，for循环内部想要获取某一个具体的元素，通过一个特性的变量名：item来获取 index元素对应的索引 -->
+<!--key可以取数组中唯一的元素作为id代表了整个数组-->
+<view class="table_name">
+  <view>辅料名</view>
+  <view>辅料号</view>
+  <view>库存</view>
+  <view>余量可用至</view>
+</view>
+
+<block wx:for="{{materailItems}}" wx:for-item="materailItem" wx:key="id">
+  <view class="table">
+    <text class="text1">{{materailItem.fuliaoming}}</text>
+    <text class="text1">{{materailItem.fuliaohao}}</text>
+    <text class="text1">{{materailItem.kucun}}</text>
+    <text class="text1">{{materailItem.yuliang}}</text>
+  </view>
+</block>

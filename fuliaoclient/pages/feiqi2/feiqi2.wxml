@@ -1,0 +1,47 @@
+<!--pages/feiqi2/feiqi2.wxml-->
+<view class='list-msg'>
+    <text class='list-msg1'>辅料名</text>
+    <view class='list-msg2'>硅胶</view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>辅料号</text>
+    <view class='list-msg2'>AMV176501M</view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>电子标签</text>
+    <view class='list-msg2'>
+    <text class="list-msg-text">202001005</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>废弃称重</text>
+    <view class='list-msg2'>
+    <text>2020.02.01</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>所用工位</text>
+    <view class='list-msg2'>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>操作者</text>
+    <view class='list-msg2'>
+    <text>郭老师</text>
+    </view>
+</view>
+
+<view class='list-msg'>
+    <text class='list-msg1'>操作日期</text>
+    <view class='list-msg2'>
+    <text class="list-msg-text">2020.03.05</text>
+    </view>
+</view>
+
+
+<button size="normal">请扫码确认</button>
