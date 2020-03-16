@@ -1,56 +1,87 @@
 // pages/login/login.js
+let app = getApp();
+// 获取云数据库引用
+const db = wx.cloud.database();
+const admin = db.collection('adminlist');
+let name = "";
+let password = "";
+
 Page({
-  // _handlerAutoLogin: function (evt) {
-  //   console.log(evt)
-  //   if (evt.detail.value.length > 0) {
-  //     //被选中，应该，选中另外一个 记住密码
-  //     this.setData({
-  //       rememberPwd: true
-  //     })
-  //   }
+
+  // inputName: function (evt) {
+  //   let passwordV = evt.detail.value;
+  //   passwordV: passwordV;
+  //   this.setData({
+  //     passwordV: passwordV,
+  //     canLogin: passwordV.length > 0 && "right"
+  //   })
   // },
 
-  // _handlerRememberPwd: function (evt) {
-  //   console.log(evt)
-  //   if (evt.detail.value.length == 0) {
-  //     //取消的时候，应该取消自动登录
-  //     this.setData({
-  //       autoLogin: false
-  //     })
-  //   }
+  // _handlerInputAccount: function (evt) {
+  //   let accountV = evt.detail.value;
+  //   this.setData({
+  //     accountV: accountV,
+  //     right: accountV.length == 5,
+  //     canLogin: this.data.passwordV.length > 0 && accountV.length == 5
+  //   })
   // },
 
-  _handlerInputPwd: function (evt) {
-    let passwordV = evt.detail.value;
-    passwordV: passwordV;
-    this.setData({
-      passwordV: passwordV,
-      canLogin: passwordV.length > 0 && "right"
-    })
-  },
-
-  _handlerInputAccount: function (evt) {
-    let accountV = evt.detail.value;
-    this.setData({
-      accountV: accountV,
-      right: accountV.length == 5,
-      canLogin: this.data.passwordV.length > 0 && accountV.length == 5
-    })
-  },
-
-  _handlerSubmit: function (evt) {
-    console.log(evt)
-  },
   /**
    * 页面的初始数据
    */
   data: {
-    accountV: "",
-    passwordV: "",
-    right: false,
-    canLogin: false,
-    // autoLogin: false,
-    // rememberPwd: false
+  },
+  //输入用户名
+  inputName: function (event) {
+    name = event.detail.value
+  },
+  //输入密码
+  inputPwd: function(event) {
+    password = event.detail.value
+  },
+  //登陆
+  login() {
+    let that = this;
+    //登陆获取用户信息
+    admin.get({
+      success: (res) => {
+        let user = res.data;
+        console.log(res.data);
+        for (let i = 0; i < user.length; i++) {  //遍历数据库对象集合
+          if (name === user[i].name) { //用户名存在
+            if (password !== user[i].password) {  //判断密码是否正确
+              wx.showToast({
+                title: '密码错误！！',
+                icon: 'success',
+                duration: 2500
+              })
+            } else {
+              console.log('登陆成功！')
+              wx.showToast({
+                title: '登陆成功！！',
+                icon: 'success',
+                duration: 2500
+              })
+              wx.navigateTo({ 
+                url: '/pages/overview/overview',  //这里的URL是你登录完成后跳转的界面
+              })
+            }
+          } else { //不存在
+            wx.showToast({
+              title: '无此用户名！！',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        }
+      }
+    })
+  },
+
+  register() {
+    wx.navigateTo({
+      url: '/pages/register/register',
+    })
   },
 
   /**

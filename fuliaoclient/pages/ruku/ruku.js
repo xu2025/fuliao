@@ -1,20 +1,6 @@
 // pages/ruku/ruku.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    select: false,
-    fuliaoming: '请选择辅料名'
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
   bindShowMsg() {
     this.setData({
       select: !this.data.select
@@ -27,6 +13,34 @@ Page({
       select: false
     })
   },
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    select: false,
+    fuliaoming: '请选择辅料名'
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.scanCode({
+      onlyFromCamera: false,
+      scanType: ['qrCode','barCode'],
+      success: function(res){
+        console.log(res);
+      // },
+      // fail:function(err){
+      //   console.log(err);
+      // },
+      // complete:function(res){
+      //   console.log(res);
+      // 
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,84 +1,85 @@
-// pages/register/register.js
-// pages/register/register.js
+// pages/login/login.js
 let app = getApp();
-// 获取数据库引用
+//获取云数据库引用
 const db = wx.cloud.database();
-const userListDB = db.collection('userlist');
+const admin = db.collection('adminlist');
+let name = "";
+let password = "";
 
-let name = null;
-let password = null;
-let phone = null;
-let address = null;
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-
   },
-  //输入用户名
-  inputName(evnet) {
-    name = evnet.detail.value;
+  //输入工号
+  inputName: function (event) {
+    name = event.detail.value
   },
   //输入密码
-  inputPassword(evnet) {
-    password = evnet.detail.value;
+  inputPwd(event) {
+    password = event.detail.value
   },
-  //输入手机号
-  inputPhone(evnet) {
-    phone = evnet.detail.value;
-  },
-  //输入地址
-  inputAddress(evnet) {
-    address = evnet.detail.value;
-  },
+
+  // .where({
+  //      _openid: app.globalData.openid  // 填入当前用户 openid
+  //   })
+
+  // wx.showModal({
+  //   title: '提示',
+  //   content: '您已注册，确定要更新账号密码吗？',
+  //   success: function (res) {
+  //     if (res.confirm) {
+  //       console.log('用户点击确定')
+  //       that.saveuserinfo();
+  //     }
+  //   }
+  // })
+
   //注册
   register() {
     let that = this;
-    if (!app.checkNamePassword(name, password)) {
-      return;
-    }
-    if (!app.checkPhoneAddress(phone, address)) {
-      return;
-    }
+    let flag = false  //是否存在 true为存在
     //查询用户是否已经注册
-    userListDB.where({
-      _openid: app.globalData.openid // 填入当前用户 openid
-    }).get({
-      success: function (res) {
-        let userInfos = res.data;
-        console.log(res.data)
-        if (userInfos && userInfos.length > 0) {
-          let user = userInfos[0];
-          if (user && user.name) {
-            wx.showModal({
-              title: '提示',
-              content: '您已注册，确定要更新账号密码吗？',
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                  that.saveuserinfo();
-                }
-              }
-            })
+    admin.get({
+      success: (res) => {
+        let admins = res.data;  //获取到的对象数组数据
+        //  console.log(admins);
+        for (let i = 0; i < admins.length; i++) {  //遍历数据库对象集合
+          if (name === admins[i].name) { //用户名存在
+            flag = true;
+            //   break;
           }
-        } else {
-          that.saveuserinfo();
+        }
+        if (flag === true) {    //已注册
+          wx.showToast({
+            title: '账号已注册！',
+            icon: 'success',
+            duration: 2500
+          })
+        } else {  //未注册
+          that.saveuserinfo()
         }
       }
     })
   },
+
+
+  //注册用户信息
   saveuserinfo() {
-    let that = this;
-    userListDB.doc('_openid').set({
+    // let that = this;
+    admin.add({  //添加数据
       data: {
         name: name,
-        password: password,
-        phone: phone,
-        address: address
+        password: password
       }
     }).then(res => {
-      app.showTips('注册成功');
+      console.log('注册成功！')
+      wx.showToast({
+        title: '注册成功！',
+        icon: 'success',
+        duration: 3000
+      })
+      wx.redirectTo({
+        url: '/pages/login/login',
+      })
     })
   },
 })

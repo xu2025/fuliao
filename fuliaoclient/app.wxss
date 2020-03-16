@@ -10,7 +10,7 @@
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 22px;
+  font-size: 26px;
   font-style: normal;
   color:  #1296db;
   -webkit-font-smoothing: antialiased;

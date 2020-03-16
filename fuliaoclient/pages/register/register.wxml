@@ -1,6 +1,4 @@
 <!--pages/register/register.wxml-->
-<input class='input' placeholder='请输入用户名' bindinput='inputName'></input>
-<input class='input' placeholder='请输入密码' bindinput='inputPassword'></input>
-<input class='input' placeholder='请输入电话' bindinput='inputPhone'></input>
-<input class='input' placeholder='请输入地址' bindinput='inputAddress'></input>
-<button class='button' type='primary' bindtap='register'>注册</button>
+  <input bind:change="inputName" maxlength="5" class="inputStyle" placeholder="请输入工号"></input>
+  <input bind:change="inputPwd" class="inputStyle" placeholder="请设定密码" ></input>
+  <button class="button" bindtap='register' type="primary">注册</button>

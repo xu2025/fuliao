@@ -100,7 +100,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "注册界面",
 					"pathName": "pages/register/register",
 					"scene": null
